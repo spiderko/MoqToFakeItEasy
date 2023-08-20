@@ -54,7 +54,7 @@ _mockClassName.Setup(x => x.MethodName(It.IsAny<int>(), It.IsAny<string>())).Ret
 A.CallTo(() => _mockClassName.MethodName(A<int>._, A<string>._)).Returns(response);
 ```
 
-```A<int>._``` is a shorthand declaration of A<int>.Ignored. It is equivalent of It.IsAny<int>() in Moq.
+```A<int>._``` is a shorthand declaration of ```A<int>.Ignored```. It is equivalent of ```It.IsAny<int>()``` in Moq.
 
 ## Veryfing if method run once
 **Moq:**
