@@ -6,3 +6,6 @@ private Mock<IClassName> _mockClassName = null!; => private IClassName _mockClas
 _mockClassName = new Mock<ClassName>(); => _mockClassName = A.Fake<ClassName>();
 _mockClassName.Setup(x => x.MethodName()).Returns(response); => A.CallTo(() => _mockClassName.MethodName()).Returns(response);
 _mockClassName.Verify(x => x.MethodName(), Times.Once); => A.CallTo(() => _mockClassName.MethodName()).MustHaveHappenedOnceExactly();
+
+_mockClassName.Setup(x => x.MethodName(It.IsAny<int>(), It.IsAny<string>())).Returns(response); => A.CallTo(() => _mockClassName.MethodName(A<int>._, A<string>._)).Returns(response);
+_mockClassName.Verify(x => x.MethodName(A<int>._, A<string>._), Times.Once); => A.CallTo(() => _mockClassName.MethodName()).MustHaveHappenedOnceExactly(); => A.CallTo(() => _mockClassName.MethodName(A<int>._, A<string>._)).MustHaveHappenedOnceExactly();
