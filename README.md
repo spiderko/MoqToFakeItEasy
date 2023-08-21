@@ -116,3 +116,12 @@ FakeItEasy, on other hand, is returning empty object instead - that is why somet
 A.CallTo(() => _mockClassName.GetById(1)).Returns(null as ReturnType);
 ```
 
+**Moq:**
+```C#
+_mockClassName.Verify(x => x.GetById(1), Times.Exactly(3));
+```
+
+**FakeItEasy:**
+```C#
+A.CallTo(() => _mockClassName.GetById(1)).MustHaveHappened(3, Times.Exactly);
+```
