@@ -103,4 +103,17 @@ A.CallTo(() => _mockClassName.MethodName(A<int>.That.Matches(body =>
         body.PropertyValueTwo == valueTwo
     )));
 ```
+Moq default behaviour when we do not specify return for a method is to return null.
+FakeItEasy, on other hand, is returning empty object instead - that is why sometime I have to add specific stup for a method which runs inside of my tested class.
+
+**Moq:**
+```C#
+// Nothing specified here for return from _mockClassName.GetById(1)
+)));
+```
+
+**FakeItEasy:**
+```C#
+A.CallTo(() => _mockClassName.GetById(1)).Returns(Task.FromResult<ReturnType>(null));
+```
 
