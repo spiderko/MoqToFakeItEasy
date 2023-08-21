@@ -98,8 +98,7 @@ _mockClassName.Verify(mock => mock.MethodName(It.Is<int>(body =>
 
 **FakeItEasy:**
 ```C#
-A.CallTo(() => _mockClassName.MethodName(A<int>._
-    .That.Matches(body =>
+A.CallTo(() => _mockClassName.MethodName(A<int>.That.Matches(body =>
         body.PropertyValueOne == valueOne &&
         body.PropertyValueTwo == valueTwo
     )));
