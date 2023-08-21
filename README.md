@@ -113,6 +113,6 @@ FakeItEasy, on other hand, is returning empty object instead - that is why somet
 
 **FakeItEasy:**
 ```C#
-A.CallTo(() => _mockClassName.GetById(1)).Returns(Task.FromResult<ReturnType>(null));
+A.CallTo(() => _mockClassName.GetById(1)).Returns(null as ReturnType);
 ```
 
