@@ -109,7 +109,6 @@ FakeItEasy, on other hand, is returning empty object instead - that is why somet
 **Moq:**
 ```C#
 // Nothing specified here for return from _mockClassName.GetById(1)
-)));
 ```
 
 **FakeItEasy:**
