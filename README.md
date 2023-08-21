@@ -33,6 +33,17 @@ _mockClassName = new Mock<ClassName>();
 _mockClassName = A.Fake<ClassName>();
 ```
 
+## Injecting Mock into tested class
+**Moq:**
+```C#
+_systemUnderTest = new SystemUnderTest(_mockClassName.Object);
+```
+
+**FakeItEasy:**
+```C#
+_systemUnderTest = new SystemUnderTest(_mockClassName);
+```
+
 ## Setting up behaviour of the method
 **Moq:**
 ```C#
