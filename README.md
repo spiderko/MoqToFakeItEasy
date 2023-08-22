@@ -125,3 +125,14 @@ _mockClassName.Verify(x => x.GetById(1), Times.Exactly(3));
 ```C#
 A.CallTo(() => _mockClassName.GetById(1)).MustHaveHappened(3, Times.Exactly);
 ```
+## Setting up on Invoke
+
+**Moq:**
+```C#
+_mockClassName.Setup(x => x(It.IsAny<int>()));
+```
+
+**FakeItEasy:**
+```C#
+A.CallTo(() => _mockClassName.Invoke(A<int>._));
+```
