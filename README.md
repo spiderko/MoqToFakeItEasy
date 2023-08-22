@@ -43,6 +43,16 @@ _systemUnderTest = new SystemUnderTest(_mockClassName.Object);
 ```C#
 _systemUnderTest = new SystemUnderTest(_mockClassName);
 ```
+## Setting up behaviour of the property
+**Moq:**
+```C#
+_mockClassName.SetupGet(x => x.PropertyName).Returns(propertyValue);
+```
+
+**FakeItEasy:**
+```C#
+A.CallTo(() => _mockClassName.PropertyName).Returns(propertyValue);
+```
 
 ## Setting up behaviour of the method
 **Moq:**
