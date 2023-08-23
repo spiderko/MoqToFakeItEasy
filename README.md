@@ -146,3 +146,26 @@ _mockClassName.Setup(x => x(It.IsAny<int>()));
 ```C#
 A.CallTo(() => _mockClassName.Invoke(A<int>._));
 ```
+
+## Sequential returns
+
+**Moq:**
+```C#
+_mockClassName.SetupSequence(x =>
+        x.MethodName(It.IsAny<string>(), It.IsAny<Func<Task<string>>>(), It.IsAny<TimeSpan?>()))
+    .ReturnsAsync(returnValueOne)
+    .ReturnsAsync(returnValueTwo)
+    .ReturnsAsync(returnValueThree);
+```
+
+**FakeItEasy:**
+```C#
+A.CallTo(() => _mockClassName
+    .MethodName(A<string>._, A<Func<Task<string>>>._, A<TimeSpan?>._))
+        .Returns(returnValueOne).Once()
+        .Then
+        .Returns(returnValueTwo).Once()
+        .Then
+        .Returns(returnValueThree);
+```
+
